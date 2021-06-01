@@ -1,0 +1,24 @@
+{
+	"job": "Doctors",
+	"members": [
+		{
+			"firstName": "George",
+			"lastName": "Mouchtaridis",
+			"AFM": "111111111",
+			"IdNumber": "CH232323",
+			"AMKA": "11111111111"
+
+		},
+
+		{
+			"firstName": "Spyros",
+			"lastName": "Felekidhs",
+			"AFM": "222222222",
+			"IdNumber": "CH121212",
+			"AMKA": "22222222222"
+		}
+	]
+}
+
+
+

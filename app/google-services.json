@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1039194091908",
+    "project_id": "db-amalthea",
+    "storage_bucket": "db-amalthea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039194091908:android:2191f5a5039208eb156dd1",
+        "android_client_info": {
+          "package_name": "com.example.amaltheaapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039194091908-3lg0ne345q1pe8224qiesn7jksgmr40q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr7IB34ar9Ot4T4uax1jEov8OipdxzkCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039194091908-3lg0ne345q1pe8224qiesn7jksgmr40q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

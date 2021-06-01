@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class RegisterAsDoctor extends AppCompatActivity {
-
+   //fdasfadsfasdfasdfasdfasdf
     TextView toLogin;
     EditText dFirstName , dLastName , dEmail, dPassword , dVerPassword;
     Button btnContinue;

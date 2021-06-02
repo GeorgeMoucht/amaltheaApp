@@ -14,12 +14,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class RegisterAsDoctorStepTwo extends AppCompatActivity {
 
-    EditText mAFM , mAMKA , mPersonalid;
+    EditText mAFM, mAMKA, mPersonalid;
     Button mRegisterDocBtn;
     ProgressBar progressBar;
-    String mFirstName , mLastName , mEmail , mPassword , userID;
+    String mFirstName, mLastName, mEmail, mPassword, userID;
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
     FirebaseFirestore fStore = FirebaseFirestore.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +38,9 @@ public class RegisterAsDoctorStepTwo extends AppCompatActivity {
         mEmail = getIntent().getStringExtra("KeyEmail");
         mPassword = getIntent().getStringExtra("KeyPassword");
 
-        mRegisterDocBtn.setOnClickListener(new View.OnClickListener()  {
+        mRegisterDocBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)  {
+            public void onClick(View v) {
                 String AFM = mAFM.getText().toString();
                 String AMKA = mAMKA.getText().toString();
                 String Personalid = mPersonalid.getText().toString();
@@ -48,27 +49,22 @@ public class RegisterAsDoctorStepTwo extends AppCompatActivity {
                 String LastName = mLastName;
                 String Password = mPassword;
 
-                if(TextUtils.isEmpty(AFM)) {
+                if (TextUtils.isEmpty(AFM)) {
                     mAFM.setError("AFM is required");
                     return;
                 }
-                if(TextUtils.isEmpty(AMKA)) {
+                if (TextUtils.isEmpty(AMKA)) {
                     mAMKA.setError("AMKA is required");
                     return;
                 }
-                if(TextUtils.isEmpty(Personalid)) {
+                if (TextUtils.isEmpty(Personalid)) {
                     mPersonalid.setError("Personal ID is required");
                     return;
                 }
 
 
-
-
-
             }
         });
 
-        
-
-
     }
+}

@@ -61,6 +61,12 @@ public class RegisterAsDoctor extends AppCompatActivity {
                 }
 
 
+                Intent intent = new Intent(RegisterAsDoctor.this, RegisterAsDoctorStepTwo.class);
+                intent.putExtra("KeyFirstName" , FirstName);
+                intent.putExtra("KeyLastName" , LastName);
+                intent.putExtra("KeyEmail" , Email);
+                intent.putExtra("KeyPassword" , Password);
+
                 pgrBar.setVisibility(View.VISIBLE);
 
             }

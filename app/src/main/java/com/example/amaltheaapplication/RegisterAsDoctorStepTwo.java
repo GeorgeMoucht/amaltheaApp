@@ -12,7 +12,17 @@ import android.widget.ProgressBar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+
 public class RegisterAsDoctorStepTwo extends AppCompatActivity {
+
+    ArrayList<String> numberlist = new ArrayList<>();
 
     EditText mAFM, mAMKA, mPersonalid;
     Button mRegisterDocBtn;
@@ -63,8 +73,44 @@ public class RegisterAsDoctorStepTwo extends AppCompatActivity {
                 }
 
 
+
+
             }
         });
 
     }
+
+    //Get json bada.
+    public void get_json() {
+        String json;
+
+        try
+        {
+            InputStream is = getAssets().open("GovDoctorDB.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read();
+            is.close();
+
+            json = new String(buffer, "UTF-8");
+            JSONArray jsonArray = new JSONArray(json);
+
+            for(int i = 0; i<jsonArray.length();i++) {
+                JSONObject obj = jsonArray.getJSONObject(i);
+
+                //isws mia sinartish poy na kanei to registration???
+
+            }
+
+
+        }catch (IOException e)
+        {
+            e.printStackTrace();
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
 }

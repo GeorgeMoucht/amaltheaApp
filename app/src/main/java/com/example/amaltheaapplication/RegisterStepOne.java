@@ -116,6 +116,9 @@ public class RegisterStepOne extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
 
+                //create  Patient object.
+                Patient pat = new Patient(firstName,lastName,email,password);
+
                 //register the user in the firebase.
                 fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

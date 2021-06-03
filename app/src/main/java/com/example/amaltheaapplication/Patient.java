@@ -3,10 +3,10 @@ package com.example.amaltheaapplication;
 import java.util.List;
 
 public class Patient {
-    String FirstName;
-    String LastName;
-    String Email;
-    String Password;
+     String FirstName;
+     String LastName;
+     String Email;
+     String Password;
 
     //Constructor
     Patient() {

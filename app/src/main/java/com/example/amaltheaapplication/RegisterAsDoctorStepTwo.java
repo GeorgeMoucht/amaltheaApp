@@ -1,24 +1,41 @@
 package com.example.amaltheaapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.gson.JsonParser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import static android.content.ContentValues.TAG;
 
 public class RegisterAsDoctorStepTwo extends AppCompatActivity {
 
@@ -28,13 +45,15 @@ public class RegisterAsDoctorStepTwo extends AppCompatActivity {
     Button mRegisterDocBtn;
     ProgressBar progressBar;
     String mFirstName, mLastName, mEmail, mPassword, userID;
-    FirebaseAuth fAuth = FirebaseAuth.getInstance();
-    FirebaseFirestore fStore = FirebaseFirestore.getInstance();
+    public FirebaseAuth fAuth = FirebaseAuth.getInstance();
+    public FirebaseFirestore fStore = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_as_doctor_step_two);
+
+
 
         mAFM = findViewById(R.id.ptAFM);
         mAMKA = findViewById(R.id.ptAMKA);
@@ -75,42 +94,14 @@ public class RegisterAsDoctorStepTwo extends AppCompatActivity {
 
 
 
+
             }
         });
 
     }
 
-    //Get json bada.
-    public void get_json() {
-        String json;
-
-        try
-        {
-            InputStream is = getAssets().open("GovDoctorDB.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read();
-            is.close();
-
-            json = new String(buffer, "UTF-8");
-            JSONArray jsonArray = new JSONArray(json);
-
-            for(int i = 0; i<jsonArray.length();i++) {
-                JSONObject obj = jsonArray.getJSONObject(i);
-
-                //isws mia sinartish poy na kanei to registration???
-
-            }
 
 
-        }catch (IOException e)
-        {
-            e.printStackTrace();
-        }catch (JSONException e)
-        {
-            e.printStackTrace();
-        }
 
-    }
 
 }

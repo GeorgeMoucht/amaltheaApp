@@ -45,8 +45,9 @@ public class RegisterAsDoctorStepTwo extends AppCompatActivity {
     Button mRegisterDocBtn;
     ProgressBar progressBar;
     String mFirstName, mLastName, mEmail, mPassword, userID;
-    public FirebaseAuth fAuth = FirebaseAuth.getInstance();
-    public FirebaseFirestore fStore = FirebaseFirestore.getInstance();
+    FirebaseAuth fAuth = FirebaseAuth.getInstance();
+    FirebaseFirestore fStore = FirebaseFirestore.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,12 +92,57 @@ public class RegisterAsDoctorStepTwo extends AppCompatActivity {
                     return;
                 }
 
+                //Verification of doctor in gov db.
+                String docName = "Spyros";
+
+                if(FirstName.equals(docName))
+                {
+
+
+                    //register the user in the firebase.
+                    fAuth.createUserWithEmailAndPassword(Email,Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()) {
+                                Toast.makeText(RegisterAsDoctorStepTwo.this,  "User Created.", Toast.LENGTH_SHORT).show();
+                                //retrive the userID of the user.
+                                userID = fAuth.getCurrentUser().getUid();
+                                DocumentReference documentReference = fStore.collection("doctors").document(userID);
+                                Map<String,Object> user = new HashMap<>();
+                                user.put("fName",FirstName);
+                                user.put("fLastName",LastName);
+                                user.put("fEmail",Email);
+                                user.put("fPassword",Password);
+                                documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Log.d(TAG, "onSuccess: user Profile is created for "+userID);
+                                    }
+                                });
+                                startActivity(new Intent (getApplicationContext(),Home.class));
+                            }else {
+                                Toast.makeText(RegisterAsDoctorStepTwo.this,  "Error in Sign Up." +task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                    });
+                }
+
+
+
+
+
+
+
 
 
 
 
             }
+
+
         });
+
 
     }
 

@@ -1,5 +1,4 @@
-{
-	"doctors": [
+[
 		{
 			"firstName": "George",
 			"lastName": "Mouchtaridis",
@@ -14,7 +13,7 @@
 			"IdNumber": "CH121212",
 			"AMKA": "22222222222"
 		}
-	]
-}
+
+]
 
 

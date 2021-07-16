@@ -35,7 +35,6 @@ public class Home extends AppCompatActivity {
 
 
         //Make Linear xml clickable like buttons.
-
         Linear_Profile.setClickable(true);
         Linear_Results.setClickable(true);
         Linear_Questions.setClickable(true);
@@ -44,20 +43,58 @@ public class Home extends AppCompatActivity {
         Linear_Translate.setClickable(true);
 
         //onClick Events
-
         Linear_Profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(Home.this, RegisterStepOne.class);
+                //Redirect to Profile activity.
+                Intent intent = new Intent(Home.this, Profile.class);
                 startActivity(intent);
-
 
             }
         });
 
 
+        Linear_Results.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Redirect to Profile activity.
+                Intent intent = new Intent(Home.this, Results.class);
+                startActivity(intent);
 
+            }
+        });
+
+        Linear_Questions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Redirect to Profile activity.
+                Intent intent = new Intent(Home.this, daily_questions.class);
+                startActivity(intent);
+
+            }
+        });
+
+        Linear_Nutritionsist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Redirect to Profile activity.
+                Intent intent = new Intent(Home.this, Nutritionist.class);
+                startActivity(intent);
+
+            }
+        });
+
+        Linear_Map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Redirect to Profile activity.
+                Intent intent = new Intent(Home.this, Map.class);
+                startActivity(intent);
+
+            }
+        });
+
+        // ?? Miss the translation ??
     }
 
 

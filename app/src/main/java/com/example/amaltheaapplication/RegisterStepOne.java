@@ -43,6 +43,7 @@ public class RegisterStepOne extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_step_one);
 
+        //Hooks to all XML objects.
         mFirstName = findViewById(R.id.ptFirstName2);
         mLastName = findViewById(R.id.ptLastName2);
         mEmail = findViewById(R.id.ptEmail);

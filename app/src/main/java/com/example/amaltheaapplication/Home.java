@@ -103,12 +103,6 @@ public class Home extends AppCompatActivity {
 
 
 
-    /*  ~~~~We will put it in profileMenu activity ~~~~~~~~~~~~~~~~
-    public void logout(View view) {
-        FirebaseAuth.getInstance().signOut(); //logout
-        startActivity(new Intent(getApplicationContext(), Login.class));
-        finish();
-    }
-    */
+
 
 }

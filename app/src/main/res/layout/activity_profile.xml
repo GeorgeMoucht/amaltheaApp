@@ -22,4 +22,11 @@
                 android:src="@drawable/usericon"/>
         </LinearLayout>
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/LogOutBtn"
+        android:layout_width="201dp"
+        android:layout_height="wrap_content"
+        android:onClick="lo"
+        android:text="Log Out" />
 </LinearLayout>

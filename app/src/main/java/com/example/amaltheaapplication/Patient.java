@@ -7,16 +7,18 @@ public class Patient {
      String LastName;
      String Email;
      String Password;
+     String Role;
 
     //Constructor
     Patient() {
 
     }
-    Patient(String fName , String lName, String eMail , String pAssword) {
+    Patient(String fName , String lName, String eMail , String pAssword, String role) {
         FirstName = fName;
         LastName = lName;
         Email = eMail;
         Password = pAssword;
+        Role = role;
     }
     //Xriazomaste kai enan constructor me Ta stoixeia p theloyme otan dimioyrgoyme user.
 
@@ -48,12 +50,17 @@ public class Patient {
         this.Password = Password;
     }
 
+    public String getRole() {
+        return Role;
+    }
+    public void setRole() { this.Role = Role; }
     @Override
     public String toString() {
         return "User{"+
                 "First Name: " +FirstName+ '\''+
                 ", Last Name: " +LastName+
                 ", Email: " +Email+
+                "role : " +Role+
                 '}';
     }
 }

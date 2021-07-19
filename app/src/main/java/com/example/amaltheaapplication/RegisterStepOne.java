@@ -37,6 +37,7 @@ public class RegisterStepOne extends AppCompatActivity {
     FirebaseFirestore  fStore;
     ProgressBar progressBar;
     String userID;
+    String role = "patient";
 
 
     @Override
@@ -72,6 +73,7 @@ public class RegisterStepOne extends AppCompatActivity {
                 String verPassword = mVerPassword.getText().toString().trim();
                 String firstName = mFirstName.getText().toString().trim();
                 String lastName = mLastName.getText().toString().trim();
+                String rOle = role;
 
 
                 if(TextUtils.isEmpty(firstName)){
@@ -118,31 +120,9 @@ public class RegisterStepOne extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
 
-                Map<String,Object> user = new HashMap<>();
-                user.put("firstName",firstName);
-                user.put("lastName",lastName);
-                user.put("email",email);
-                user.put("password",password);
-                user.put("role","patient");
-
-                fStore.collection("users")
-                        .add(user)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                Toast.makeText(RegisterStepOne.this,"Sucessfull register in cloud",Toast.LENGTH_SHORT).show();
-
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(RegisterStepOne.this,"Failed register in cloud",Toast.LENGTH_SHORT).show();
-
-                    }
-                });
 
                 //create  Patient object.
-                Patient pat = new Patient(firstName,lastName,email,password);
+                Patient pat = new Patient(firstName,lastName,email,password,rOle);
 
                 //register the user in the firebase.
                 fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -150,22 +130,33 @@ public class RegisterStepOne extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                       if(task.isSuccessful()) {
                           Toast.makeText(RegisterStepOne.this,  "User Created.", Toast.LENGTH_SHORT).show();
-                          //retrive the userID of the user.
+
+                          //Initialize user ID from Auth
                           userID = fAuth.getCurrentUser().getUid();
-                          /*
-                          DocumentReference documentReference = fStore.collection("users").document(userID);
+
                           Map<String,Object> user = new HashMap<>();
-                          user.put("fName",firstName);
-                          user.put("fLastName",lastName);
-                          user.put("fEmail",email);
-                          user.put("fPassword",password);
-                          documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                          user.put("firstName",firstName);
+                          user.put("lastName",lastName);
+                          user.put("email",email);
+                          user.put("password",password);
+                          user.put("role",rOle);
+                          user.put("AuthUserID", userID);
+
+                          fStore.collection("users")
+                                  .add(user)
+                                  .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                      @Override
+                                      public void onSuccess(DocumentReference documentReference) {
+                                          Toast.makeText(RegisterStepOne.this,"Sucessfull register in cloud",Toast.LENGTH_SHORT).show();
+
+                                      }
+                                  }).addOnFailureListener(new OnFailureListener() {
                               @Override
-                              public void onSuccess(Void aVoid) {
-                                  Log.d(TAG, "onSuccess: user Profile is created for "+userID);
+                              public void onFailure(@NonNull Exception e) {
+                                  Toast.makeText(RegisterStepOne.this,"Failed register in cloud",Toast.LENGTH_SHORT).show();
+
                               }
                           });
-                           */
 
                           startActivity(new Intent (getApplicationContext(),Home.class));
                       }else {

@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -58,10 +59,10 @@ public class RegisterStepOne extends AppCompatActivity {
         tvToDoc = findViewById(R.id.tvToDoctorRegister);
 
         //if the user is logged in redirect him in Activity_Home, without login/sign up.
-        if(fAuth.getCurrentUser() != null) {
+        /*if(fAuth.getCurrentUser() != null) {
             startActivity(new Intent (getApplicationContext(),Home.class));
             finish();
-        }
+        }*/
 
         mRegisterToStepTwo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,6 +118,29 @@ public class RegisterStepOne extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
 
+                Map<String,Object> user = new HashMap<>();
+                user.put("firstName",firstName);
+                user.put("lastName",lastName);
+                user.put("email",email);
+                user.put("password",password);
+                user.put("role","patient");
+
+                fStore.collection("users")
+                        .add(user)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Toast.makeText(RegisterStepOne.this,"Sucessfull register in cloud",Toast.LENGTH_SHORT).show();
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(RegisterStepOne.this,"Failed register in cloud",Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
                 //create  Patient object.
                 Patient pat = new Patient(firstName,lastName,email,password);
 
@@ -128,6 +152,7 @@ public class RegisterStepOne extends AppCompatActivity {
                           Toast.makeText(RegisterStepOne.this,  "User Created.", Toast.LENGTH_SHORT).show();
                           //retrive the userID of the user.
                           userID = fAuth.getCurrentUser().getUid();
+                          /*
                           DocumentReference documentReference = fStore.collection("users").document(userID);
                           Map<String,Object> user = new HashMap<>();
                           user.put("fName",firstName);
@@ -140,6 +165,8 @@ public class RegisterStepOne extends AppCompatActivity {
                                   Log.d(TAG, "onSuccess: user Profile is created for "+userID);
                               }
                           });
+                           */
+
                           startActivity(new Intent (getApplicationContext(),Home.class));
                       }else {
                           Toast.makeText(RegisterStepOne.this,  "Error in Sign Up." +task.getException().getMessage(), Toast.LENGTH_SHORT).show();

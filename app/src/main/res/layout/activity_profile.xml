@@ -119,8 +119,11 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
+
+
     <!--=================================I GUESS THIS WILL CHANGE TO RECYCLEVIEW===========================================-->
     <!--FirstName Layout -->
+    <!--
     <LinearLayout
         android:layout_width="360dp"
         android:layout_height="wrap_content"
@@ -144,8 +147,7 @@
                 android:text="MyFirstNameTest"/>
         </LinearLayout>
     </LinearLayout>
-    <!--End of FirstName layout -->
-    <!--LastName Layout -->
+
     <LinearLayout
         android:layout_width="360dp"
         android:layout_height="wrap_content"
@@ -169,8 +171,7 @@
                 android:text="MyFirstNameTest"/>
         </LinearLayout>
     </LinearLayout>
-    <!--End of LastName layout -->
-    <!--Email Layout -->
+
     <LinearLayout
         android:layout_width="360dp"
         android:layout_height="wrap_content"
@@ -194,19 +195,26 @@
                 android:text="MyFirstNameTest"/>
         </LinearLayout>
     </LinearLayout>
+    -->
     <!--End of Email layout -->
 
 
     <!--=================================I END OF GUESS THIS WILL CHANGE TO RECYCLEVIEW===========================================-->
 
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/profileRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <Button
         android:id="@+id/LogOutBtn"
         android:layout_width="201dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
         android:onClick="logout"
-        android:text="Log Out" />
+        android:text="Log Out"
+        app:backgroundTint="#80a3bf" />
 
 </LinearLayout>

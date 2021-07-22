@@ -9,6 +9,8 @@ public class Patient {
      String Password;
      String Role;
 
+     /*CRPYPTO https://cloud.google.com/firestore/docs/server-side-encryption */
+
     //Constructor
     Patient() {
 

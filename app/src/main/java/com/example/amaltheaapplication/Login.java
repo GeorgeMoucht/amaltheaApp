@@ -42,6 +42,12 @@ public class Login extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
 
+        //if the user is logged in redirect him in Activity_Home, without login/sign up. CHECK THE '!='
+        /*if(fAuth.getCurrentUser() != null) {
+            startActivity(new Intent (getApplicationContext(),Home.class));
+            finish();
+        }*/
+
         //when user click the Login button.
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

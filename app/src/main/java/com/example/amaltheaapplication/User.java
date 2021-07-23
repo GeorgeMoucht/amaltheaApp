@@ -12,10 +12,10 @@ public class User {
      /*CRPYPTO https://cloud.google.com/firestore/docs/server-side-encryption */
 
     //Constructor
-    User() {
+    public User() {
 
     }
-    User(String fName , String lName, String eMail , String pAssword, String role) {
+    public User(String fName , String lName, String eMail , String pAssword, String role) {
         firstName = fName;
         lastName = lName;
         email = eMail;

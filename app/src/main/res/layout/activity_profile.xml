@@ -226,7 +226,7 @@
             android:textSize="23sp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="textview2" />
+            android:text="" />
     </LinearLayout>
     <!-- =====================END OF First Name TextView layout ===================== -->
     <!-- =====================First Name TextView layout ===================== -->
@@ -255,7 +255,7 @@
             android:textSize="23sp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="textview2" />
+            android:text="" />
     </LinearLayout>
     <!-- =====================END OF First Name TextView layout ===================== -->
     <!-- =====================Email TextView layout ===================== -->
@@ -284,7 +284,7 @@
             android:textSize="23sp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="textview2" />
+            android:text="" />
     </LinearLayout>
     <!-- =====================END OF Email TextView layout ===================== -->
 

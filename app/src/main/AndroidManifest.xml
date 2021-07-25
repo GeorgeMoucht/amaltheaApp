@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AmaltheaApplication">
-        <activity android:name=".Map"></activity>
+        <activity android:name=".SearchResults"></activity>
+        <activity android:name=".importResults" />
+        <activity android:name=".Map" />
         <activity android:name=".Nutritionist" />
         <activity android:name=".daily_questions" />
         <activity android:name=".Results" />

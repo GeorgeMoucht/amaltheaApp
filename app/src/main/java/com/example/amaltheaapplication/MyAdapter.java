@@ -41,7 +41,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.firstName.setText(user.firstName);
         holder.lastName.setText(user.lastName);
         holder.email.setText(user.email);
-        
+
 
     }
 

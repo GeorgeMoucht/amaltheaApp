@@ -15,12 +15,12 @@ public class User {
     public User() {
 
     }
-    public User(String fName , String lName, String eMail , String pAssword, String role) {
+    public User(String fName , String lName, String eMail , String pAssword, String Role) {
         firstName = fName;
         lastName = lName;
         email = eMail;
         password = pAssword;
-        role = role;
+        role = Role;
     }
     //Xriazomaste kai enan constructor me Ta stoixeia p theloyme otan dimioyrgoyme user.
 

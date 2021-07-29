@@ -59,7 +59,7 @@ public class importResults extends AppCompatActivity {
         results.put("AuthUserID", userId);
         results.put("CapsuleID", capsuleId);
         //We need somehow to put the List of results here. ===========================================================================================================
-
+        ArrayListOfResults();
         fStore.collection("results")
                 .add(results)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -77,5 +77,13 @@ public class importResults extends AppCompatActivity {
         });
 
 
+    }
+    //Because we didn't manage to make the capsule software,
+    //the ArrayList that we put in db is created as example
+    //to be able to test and continue the application.
+    //In next versions of project we are planning to re-create this function
+    //to real interact with the capsule.
+    public void ArrayListOfResults() {
+        
     }
 }

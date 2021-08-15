@@ -18,21 +18,21 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_marginTop="35dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_width="130dp"
                 android:layout_height="130dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="35dp"
                 android:src="@drawable/usericon" />
 
             <TextView
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
                 android:text="William Snoe"
                 android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="21sp"/>
+                android:textSize="21sp"
+                android:textStyle="bold" />
         </LinearLayout>
         <androidx.cardview.widget.CardView
             android:layout_width="350dp"

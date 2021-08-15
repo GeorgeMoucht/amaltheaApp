@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -84,6 +85,9 @@ public class importResults extends AppCompatActivity {
     //In next versions of project we are planning to re-create this function
     //to real interact with the capsule.
     public void ArrayListOfResults() {
+
+        ArrayList<String> capsuleResults = new ArrayList();
         
+
     }
 }

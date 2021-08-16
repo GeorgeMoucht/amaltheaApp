@@ -73,7 +73,8 @@ public class Profile extends AppCompatActivity {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for(QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                            //Care! All fields my be exactly the same with db fields.
+                            //Care! All fields must be exactly the same with db fields.
+                            //Otherwise Querry will not work.
                             dFirstName.append(" "+document.getString("firstName"));
                             dLastName.append(""+document.getString("lastName"));
                             dEmail.append(""+document.getString("email"));

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SearchResults extends AppCompatActivity {
@@ -22,6 +23,7 @@ public class SearchResults extends AppCompatActivity {
         TextView mMessageWindow = (TextView) findViewById(R.id.messageWindow);
 
 
+        fetchCapsuleData(mMessageWindow);
         //Test for ScrollView.
         /*
         StringBuilder stringBuilder = new StringBuilder();
@@ -34,6 +36,23 @@ public class SearchResults extends AppCompatActivity {
         mMessageWindow.setText(stringBuilder.toString());
         */
 
+
+    }
+    public void fetchCapsuleData(TextView MessageWindow){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userID;
+
+
+        if( user != null) {
+            String ma = user.getEmail();
+        }
+
+        //Initialize user ID from Auth
+        userID = fAuth.getCurrentUser().getUid();
+        db = FirebaseFirestore.getInstance();
+
+
+        db.collection("")
 
     }
 }

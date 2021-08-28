@@ -57,15 +57,35 @@
             android:text="" /> -->
 
     </LinearLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/messageWindow"/>
-    </ScrollView>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Email: " />
+
+        <TextView
+            android:id="@+id/tvEmailp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text=""
+            android:textSize="23sp" />
+    </LinearLayout>
 
 
 </LinearLayout>

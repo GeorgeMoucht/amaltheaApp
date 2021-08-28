@@ -36,5 +36,4 @@ public class Capsule_Results {
     public List<String> getResultsOfCapsule(){
         return resultsOfCapsule;
     }
-
 }
